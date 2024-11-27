@@ -19,5 +19,7 @@ public class TextTest : MonoBehaviour
         {
             text1.text = "Player Controls Enabled";
         }
+
+        
     }
 }

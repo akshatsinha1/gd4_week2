@@ -24,12 +24,12 @@ public class PlayerControls : MonoBehaviour
 
         //METHOD 2
         //transform.Translate(0,0, movementSpeed * Time.deltaTime);
-        //transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
+        transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
 
         //movementSpeed += Time.deltaTime * 0.2f;
 
         //METHOD 3
-        rb.AddForce(Vector3.forward * movementSpeed);
+        //rb.AddForce(Vector3.forward * movementSpeed);
 
     }
 }
