@@ -27,13 +27,15 @@ public class PlayerControls : MonoBehaviour
         if (timer == 0) {//end game
                          }
 
-       
+        transform.Rotate(Vector3.up * Input.GetAxis("Horizontal") * Time.deltaTime * 40);
+
 
         //METHOD 2
         //transform.Translate(0,0, movementSpeed * Time.deltaTime);
         transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
 
-        //movementSpeed += Time.deltaTime * 0.2f;
+     
+        
 
         //METHOD 3
         //rb.AddForce(Vector3.forward * movementSpeed);

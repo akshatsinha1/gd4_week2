@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         //METHOD 3
-        defaultCameraOffset = transform.position - playerTransform.position  ;
+        defaultCameraOffset = transform.position - playerTransform.position;
     }
 
     // Update is called once per frame
@@ -23,6 +23,20 @@ public class CameraController : MonoBehaviour
         //transform.position = playerTransform.position + cameraOffset;
 
         //METHOD 3
-        transform.position = playerTransform.position + defaultCameraOffset;
+        //transform.position = playerTransform.position + defaultCameraOffset;
+
+        //METHOD 4
+
+        //Modifies the camera position relative to the Player's position, while keeping the same distance as start
+        transform.position = playerTransform.position  + (playerTransform.forward * defaultCameraOffset.z) + new Vector3(0,defaultCameraOffset.y,0);
+
+        //The camera uses the Player's rotation to modify it's Y rotation, while keeping its default rotation on X and Z axis.
+        transform.rotation = Quaternion.Euler(transform.eulerAngles.x,playerTransform.eulerAngles.y, transform.eulerAngles.z);
+
+        
+
+
+
+        
     }
 }
