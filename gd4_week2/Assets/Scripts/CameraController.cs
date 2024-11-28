@@ -4,8 +4,11 @@ public class CameraController : MonoBehaviour
 {
     public Transform playerTransform;
     public Vector3 cameraOffset;
+    public Vector3 cameraOffsetFPS;
     Vector3 defaultCameraOffset;
-   
+
+    bool isFirstPerson;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,13 +23,25 @@ public class CameraController : MonoBehaviour
         //transform.position = playerTransform.position + new Vector3(0,7,-10);
 
         //METHOD 2
-        //transform.position = playerTransform.position + cameraOffset;
+        //if(isFirstPerson == false)
+        //{
+        //    transform.position = playerTransform.position + cameraOffset;
+        //}
+        //else
+        //{
+        //    transform.position = playerTransform.position + cameraOffsetFPS;
+        //}
+
+        //if(Input.GetKeyDown(KeyCode.C)) isFirstPerson = !isFirstPerson;
+        
+
+
+
 
         //METHOD 3
         //transform.position = playerTransform.position + defaultCameraOffset;
 
         //METHOD 4
-
         //Modifies the camera position relative to the Player's position, while keeping the same distance as start
         transform.position = playerTransform.position  + (playerTransform.forward * defaultCameraOffset.z) + new Vector3(0,defaultCameraOffset.y,0);
 

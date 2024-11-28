@@ -5,6 +5,10 @@ public class PlayerControls : MonoBehaviour
     public float movementSpeed = 10;
     Rigidbody rb;
     float timer = 60;
+    public float turnSpeed = 45;
+    //float vertical, horizontal;
+    public string playerIndex;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,18 +31,35 @@ public class PlayerControls : MonoBehaviour
         if (timer == 0) {//end game
                          }
 
-        transform.Rotate(Vector3.up * Input.GetAxis("Horizontal") * Time.deltaTime * 40);
+
+
+        //Horizontal Input (LEFT-RIGHT Input)
+        float horizontal = Input.GetAxis("Horizontal" + playerIndex);
+
+        //Vertical Input (UP-DOWN/FORWARD-BACKWARDS Input)
+        float vertical = Input.GetAxis("Vertical" + playerIndex);
+
+        if(Input.GetButtonDown("Jump"))
+        {
+            //make character jump
+        }
+        
 
 
         //METHOD 2
         //transform.Translate(0,0, movementSpeed * Time.deltaTime);
-        transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
 
+        //transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime * vertical);
+        transform.Rotate(Vector3.up * turnSpeed * horizontal * Time.deltaTime);
      
         
 
         //METHOD 3
-        //rb.AddForce(Vector3.forward * movementSpeed);
+        rb.AddForce(transform.forward * movementSpeed * vertical);
+        ///rb.AddTorque(transform.up * turnSpeed * horizontal);
+
+
+
 
     }
 }
