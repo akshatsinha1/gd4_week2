@@ -32,7 +32,6 @@ public class PlayerControls : MonoBehaviour
                          }
 
 
-
         //Horizontal Input (LEFT-RIGHT Input)
         float horizontal = Input.GetAxis("Horizontal" + playerIndex);
 
@@ -43,23 +42,16 @@ public class PlayerControls : MonoBehaviour
         {
             //make character jump
         }
-        
-
 
         //METHOD 2
         //transform.Translate(0,0, movementSpeed * Time.deltaTime);
 
         //transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime * vertical);
         transform.Rotate(Vector3.up * turnSpeed * horizontal * Time.deltaTime);
-     
-        
 
         //METHOD 3
         rb.AddForce(transform.forward * movementSpeed * vertical);
         ///rb.AddTorque(transform.up * turnSpeed * horizontal);
-
-
-
 
     }
 }
